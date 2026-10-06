@@ -1,0 +1,62 @@
+id: ROOT
+name: 待办清单应用
+type: FOLDER
+description: 我要一个待办清单应用
+dependencies: []
+children:
+- id: REQ-1-1
+  name: 添加任务
+  type: ATOMIC
+  description: 用户可以输入任务标题并添加到清单。
+  dependencies: []
+  scenarios:
+  - name: 添加任务 主流程
+    steps:
+    - keyword: GIVEN
+      content: 用户准备使用 添加任务 功能。
+    - keyword: WHEN
+      content: 用户触发 添加任务 相关操作。
+    - keyword: THEN
+      content: 系统正确完成 添加任务 并给出反馈。
+- id: REQ-1-2
+  name: 完成任务
+  type: ATOMIC
+  description: 用户可以勾选复选框将任务标记为已完成。
+  dependencies: []
+  scenarios:
+  - name: 完成任务 主流程
+    steps:
+    - keyword: GIVEN
+      content: 用户准备使用 完成任务 功能。
+    - keyword: WHEN
+      content: 用户触发 完成任务 相关操作。
+    - keyword: THEN
+      content: 系统正确完成 完成任务 并给出反馈。
+- id: REQ-1-3
+  name: 删除任务
+  type: ATOMIC
+  description: 用户可以删除不再需要的任务。
+  dependencies: []
+  scenarios:
+  - name: 删除任务 主流程
+    steps:
+    - keyword: GIVEN
+      content: 用户准备使用 删除任务 功能。
+    - keyword: WHEN
+      content: 用户触发 删除任务 相关操作。
+    - keyword: THEN
+      content: 系统正确完成 删除任务 并给出反馈。
+- id: REQ-1-4
+  name: 任务列表
+  type: ATOMIC
+  description: 按时间顺序展示所有任务及完成状态。
+  dependencies: []
+  scenarios:
+  - name: 任务列表 主流程
+    steps:
+    - keyword: GIVEN
+      content: 用户准备使用 任务列表 功能。
+    - keyword: WHEN
+      content: 用户触发 任务列表 相关操作。
+    - keyword: THEN
+      content: 系统正确完成 任务列表 并给出反馈。

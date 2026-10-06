@@ -1,0 +1,75 @@
+﻿# 鏈嶅姟鍣ㄧ鍙?
+server:
+  port: 8888
+  address: 0.0.0.0 # 寮哄埗鐩戝惉鎵€鏈夌綉鍗★紝鍏佽灞€鍩熺綉璁块棶
+  servlet:
+    context-path: /
+system:
+  properties:
+    java.net.preferIPv4Stack: true
+# Spring 閰嶇疆
+spring:
+  application:
+    name: voice-calendar-backend
+  web:
+    resources:
+      add-mappings: false
+  # 鏂囦欢涓婁紶閰嶇疆
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1MB
+      max-request-size: 1MB
+  # 鏁版嵁搴擄紙MySQL8.x锛?
+  datasource:
+    url: jdbc:mysql://localhost:3306/voice_calendar?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: Niuzisen123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # Redis 閰嶇疆锛堝繀椤诲湪 spring 涓嬮潰锛?
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: # 绌虹潃鍗冲彲
+      database: 0
+      timeout: 3000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 2
+          max-wait: -1ms
+
+  # 鑷畾涔夐厤缃紙楠岃瘉鐮佽繃鏈熸椂闂达紝鏀惧湪澶栭潰锛?
+  code:
+    expire:
+      seconds: 300 # 5鍒嗛挓杩囨湡
+
+# JWT 閰嶇疆
+jwt:
+  secret: yourSecretKeyForVoiceCalendar12345678901234567890
+  expiration: 86400000 # 1澶╋紙姣锛?
+
+# MyBatis-Plus 閰嶇疆
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml  # 蹇呴』鍔狅紝鎸囧畾 XML 鏂囦欢浣嶇疆
+  type-aliases-package: com.voice.calendar.entity  # 瀹炰綋绫诲埆鍚嶅寘
+  configuration:
+    map-underscore-to-camel-case: true      # 涓嬪垝绾胯浆椹煎嘲锛屾纭?
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 鎵撳嵃 SQL锛屾纭?
+  global-config:
+    db-config:
+      id-type: auto  # 涓婚敭鑷锛屾纭?
+
+# 鐧惧害璇煶閰嶇疆
+baidu:
+  speech:
+    app-id: 123528141
+    api-key: YOUR_BAIDU_API_KEY
+    secret-key: YOUR_JWT_SECRET_KEY
+
+# 璞嗗寘API閰嶇疆
+doubao:
+  api-key: YOUR_ARK_API_KEY

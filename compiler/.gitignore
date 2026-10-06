@@ -1,0 +1,11 @@
+dist
+workspace
+AGENTS.md
+
+.venv
+__pycache__
+*.db
+.env
+arc_compiler.egg-info
+
+build
